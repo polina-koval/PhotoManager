@@ -7,7 +7,6 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 
 from api.tests.factories import PhotoFactory
-from photo.models import Photo
 
 
 class TestPhotoEndpoint(TestCase):
