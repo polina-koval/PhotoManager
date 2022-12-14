@@ -9,7 +9,9 @@ class Photo(models.Model):
     location = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    people = ArrayField(models.CharField(max_length=255), blank=True, null=True)
+    people = ArrayField(
+        models.CharField(max_length=255), default=list, blank=True, null=True
+    )
     image = models.FileField(upload_to="photos/")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="photos"
