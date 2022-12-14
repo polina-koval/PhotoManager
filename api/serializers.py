@@ -6,13 +6,19 @@ from photo.models import Photo
 User = get_user_model()
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["url", "username", "email", "is_staff"]
 
 
-class PhotoSerializer(serializers.HyperlinkedModelSerializer):
+class PhotoListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
-        fields = ["id", "location", "description", "user", "image", "people"]
+        fields = ["id", "image"]
+
+
+class PhotoDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photo
+        fields = ["id", "location", "date", "description", "people", "image"]
