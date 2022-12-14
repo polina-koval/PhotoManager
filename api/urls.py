@@ -10,7 +10,12 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Photo Manager API",
         default_version="v1",
-        description="Save your photos here",
+        description=(
+            "You need to provide a token in the header for a successful "
+            "request from an authenticated user. In the playground, this is "
+            "available by `Authorize`.\nIn the `Value` field, enter the token "
+            "in the format `token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+        ),
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="koval6polina@gmail.com"),
     ),
