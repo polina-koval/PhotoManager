@@ -1,6 +1,10 @@
 # Photo Manager(PM)
 Back-end rest api and admin interface for PM. It works with python 3.11.
 > The main tasks of the service:
+> * Registration and authorization of users.
+> * User Token Authentication
+> * Storing user photos with metadata.
+> * An authenticated user can only view and edit their own photos and upload new ones.
 
 
 ## Getting Started
@@ -10,7 +14,7 @@ $ git clone https://github.com/polina-koval/PhotoManager.git
 $ cd PhotoManager
 ```
 
-By default you'll encounter sqlite database. Follow [django documentation](https://docs.djangoproject.com/en/4.1/ref/settings/#databases) to change it.
+By default you'll encounter PostgreSQL database. Follow [django documentation](https://docs.djangoproject.com/en/4.1/ref/settings/#databases) to change it.
 
 Create a virtual environment to install dependencies in and activate it:  
 
