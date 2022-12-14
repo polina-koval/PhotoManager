@@ -22,3 +22,8 @@ class PhotoDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
         fields = ["id", "location", "date", "description", "people", "image"]
+
+    def create(self, validated_data):
+        user = self.context["request"].user
+        photo = Photo.objects.create(user=user, ** validated_data)
+        return photo
