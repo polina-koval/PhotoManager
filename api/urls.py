@@ -1,9 +1,10 @@
-from django.urls import re_path
+from django.urls import path, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from knox import views as knox_views
 from rest_framework import permissions, routers
 
-from api.views import PhotoViewSet, UserViewSet
+from api.views import LoginAPI, PhotoViewSet, RegisterAPI, UserViewSet
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -23,6 +24,10 @@ router.register(r"photos", PhotoViewSet, basename="photo")
 urlpatterns = router.urls
 
 urlpatterns += [
+    path("register/", RegisterAPI.as_view(), name="register"),
+    path("login/", LoginAPI.as_view(), name="login"),
+    path("logout/", knox_views.LogoutView.as_view(), name="logout"),
+    path("logoutall/", knox_views.LogoutAllView.as_view(), name="logoutall"),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),
