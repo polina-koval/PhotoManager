@@ -58,6 +58,8 @@ class LoginAPI(KnoxLoginView):
 
 
 class PhotoViewSet(viewsets.ModelViewSet):
+    """Returns a list of all photos(or one photo by id)
+     uploaded by an authenticated user."""
     queryset = Photo.objects.all()
     serializer_class = PhotoListSerializer
     permission_classes = [
