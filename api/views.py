@@ -3,8 +3,11 @@ from django.contrib.auth import get_user_model
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
-from api.serializers import (UserSerializer, PhotoListSerializer,
-    PhotoDetailSerializer, )
+from api.serializers import (
+    UserSerializer,
+    PhotoListSerializer,
+    PhotoDetailSerializer,
+)
 from photo.models import Photo
 
 User = get_user_model()
