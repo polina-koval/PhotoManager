@@ -16,4 +16,9 @@ class PhotoFilter(django_filters.FilterSet):
 
     class Meta:
         model = Photo
-        fields = {"location": ["icontains"], "date": [], "people": []}
+        fields = {
+            "location": ["icontains"],
+            "date": [],
+            "people": [],
+            "description": ["icontains"],
+        }
