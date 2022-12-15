@@ -1,0 +1,8 @@
+[run]
+include = PhotoManager/*
+omit =
+    venv/*, config/*, docs/*,
+    manage.py, */tests/*, */migrations/*, */__init__.py, conftest.py
+    *apps.py, */requirements/*, */templates/*, */htmlcov/*
+plugins =
+    django_coverage_plugin
