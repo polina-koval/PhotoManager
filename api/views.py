@@ -52,14 +52,15 @@ class LoginAPI(KnoxLoginView):
     def post(self, request, format=None):
         serializer = AuthTokenSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
+        user = serializer.validated_data["user"]
         login(request, user)
         return super(LoginAPI, self).post(request, format=None)
 
 
 class PhotoViewSet(viewsets.ModelViewSet):
     """Returns a list of all photos(or one photo by id)
-     uploaded by an authenticated user."""
+    uploaded by an authenticated user."""
+
     queryset = Photo.objects.all()
     serializer_class = PhotoListSerializer
     permission_classes = [
