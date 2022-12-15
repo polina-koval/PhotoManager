@@ -12,7 +12,7 @@ class Photo(models.Model):
     people = ArrayField(
         models.CharField(max_length=255), default=list, blank=True, null=True
     )
-    image = models.FileField(upload_to="photos/")
+    image = models.ImageField(upload_to="photos/")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="photos"
     )
