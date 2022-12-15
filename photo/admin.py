@@ -9,6 +9,7 @@ from photo.models import Photo
 class PhotoAdmin(admin.ModelAdmin, DynamicArrayMixin):
     list_display = ["user", "description", "people", "get_preview_img"]
     list_filter = ["user", "date"]
+    search_fields = ["description"]
 
     def get_preview_img(self, obj: Photo):
         if obj.image:
